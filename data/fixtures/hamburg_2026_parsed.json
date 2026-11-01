@@ -1,0 +1,112 @@
+{
+    "source": {
+        "authority": "Gutachterausschuss für Grundstückswerte in Hamburg",
+        "report_year": 2026,
+        "printed_pages": [
+            166,
+            167,
+            168
+        ],
+        "pdf_pages": [
+            168,
+            169,
+            170
+        ]
+    },
+    "metric": {
+        "asset_class": "Production and Logistics Properties",
+        "name": "Liegenschaftszinssatz",
+        "base_rate_percent": "4.11",
+        "unit": "%",
+        "value_type": "base_rate",
+        "formula": "base_rate * location_factor * rent_factor * first_occupancy_factor * update_factor",
+        "location_factor": {
+            "base_land_value": "BRW22",
+            "reference_value": "440",
+            "exponent": "-1.4861"
+        },
+        "rent_factor": {
+            "market_rent": "MM",
+            "reference_rent": "RM",
+            "exponent": "0.0948"
+        },
+        "first_occupancy_factor": "0.84"
+    },
+    "dataset": {
+        "selected_transactions": 110,
+        "selection_period": "2009-2021",
+        "update_factors": [
+            {
+                "investigation_period": "1.1.2022 bis 1.1.2023",
+                "valuation_date": "01.01.2023",
+                "value": "1.10"
+            },
+            {
+                "investigation_period": "1.1.2023 bis 1.1.2024",
+                "valuation_date": "01.07.2023",
+                "value": "1.15"
+            },
+            {
+                "investigation_period": "1.1.2023 bis 1.1.2024",
+                "valuation_date": "01.01.2024",
+                "value": "1.20"
+            },
+            {
+                "investigation_period": "1.1.2024 bis 1.1.2025",
+                "valuation_date": "01.07.2024",
+                "value": "1.15"
+            },
+            {
+                "investigation_period": "1.1.2024 bis 1.1.2025",
+                "valuation_date": "01.01.2025",
+                "value": "1.15"
+            },
+            {
+                "investigation_period": "1.1.2025 bis 1.1.2026",
+                "valuation_date": "01.07.2025",
+                "value": "1.12"
+            },
+            {
+                "investigation_period": "1.1.2025 bis 1.1.2026",
+                "valuation_date": "01.01.2026",
+                "value": "1.10"
+            }
+        ],
+        "sample_statistics": {
+            "BRW22_EUR_per_m2": {
+                "minimum": "290",
+                "maximum": "520",
+                "mean": "429",
+                "sample_size": 110
+            },
+            "construction_year": {
+                "minimum": "1890",
+                "maximum": "2021",
+                "mean": "1975",
+                "sample_size": 110
+            },
+            "usable_area_m2": {
+                "minimum": "273",
+                "maximum": "22494",
+                "mean": "3548",
+                "sample_size": 110
+            },
+            "net_cold_rent_EUR_per_m2": {
+                "minimum": "2.26",
+                "maximum": "21.98",
+                "mean": "6.04",
+                "sample_size": 110
+            }
+        }
+    },
+    "quality_metric": {
+        "name": "relative_standard_deviation",
+        "value_percent": "26"
+    },
+    "limitations": [
+        "The extracted base rate is not a final property-specific rate.",
+        "The final rate requires the relevant adjustment factors.",
+        "The report's selection criteria mention 2009-2021, while its transaction-year table displays years through 2025.",
+        "The extracted data should be checked against the original PDF."
+    ]
+}

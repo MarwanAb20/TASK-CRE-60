@@ -1,0 +1,71 @@
+
+{
+  "source": {
+    "authority": "Gutachterausschuss für Grundstückswerte Hamburg",
+    "report_title": "Immobilienmarktbericht Hamburg 2026",
+    "report_year": 2026,
+    "reporting_period": "2025-01-01/2025-12-31",
+    "url": "https://www.hamburg.de/resource/blob/1166868/d21cbc3d6d1c7767bfb82752a3c4cb3d/d-immobilienmarktbericht-2026-data.pdf",
+    "printed_pages": [166, 167],
+    "permission_note": "The report permits reuse with source attribution."
+  },
+  "metric": {
+    "name": "Liegenschaftszinssatz",
+    "asset_class": "Production and Logistics",
+    "geographic_scope": "Hamburg excluding Neuwerk",
+    "value_type": "base_rate",
+    "base_rate_percent": "4.11",
+    "unit": "%",
+    "formula": "4.11 * location_factor * rent_level_factor * first_occupancy_factor * update_factor",
+    "factors": {
+      "location": "(BRW22 / 440)^-1.4861",
+      "rent_level": "(MM / RM)^0.0948",
+      "first_occupancy": {
+        "value": "0.84",
+        "condition": "Building year is the valuation year or one of the previous three years."
+      }
+    },
+    "update_factors": [
+      {
+        "valuation_date": "2023-01-01",
+        "value": "1.10"
+      },
+      {
+        "valuation_date": "2023-07-01",
+        "value": "1.15"
+      },
+      {
+        "valuation_date": "2024-01-01",
+        "value": "1.20"
+      },
+      {
+        "valuation_date": "2024-07-01",
+        "value": "1.15"
+      },
+      {
+        "valuation_date": "2025-01-01",
+        "value": "1.15"
+      },
+      {
+        "valuation_date": "2025-07-01",
+        "value": "1.12"
+      },
+      {
+        "valuation_date": "2026-01-01",
+        "value": "1.10"
+      }
+    ]
+  },
+  "dataset": {
+    "transaction_years": [2009, 2021],
+    "selected_transactions": 110,
+    "selection_criteria": "Production and logistics property sales; residential floor-area share below 20%; no leaseholds; no unusual circumstances."
+  },
+  "data_status": "official_published_methodology",
+  "is_illustrative": false,
+  "limitations": [
+    "The base rate is not a final property-specific rate.",
+    "Property-specific adjustment inputs are required to calculate a final rate.",
+    "Do not infer missing adjustment factors."
+  ]
+}

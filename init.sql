@@ -1,0 +1,3 @@
+﻿CREATE EXTENSION IF NOT EXISTS postgis;
+CREATE SCHEMA IF NOT EXISTS iris_staging;
+SELECT PostGIS_Version();

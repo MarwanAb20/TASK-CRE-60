@@ -1,0 +1,33 @@
+﻿services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: task-cre-60-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-iris_dev}
+      POSTGRES_USER: ${POSTGRES_USER:-iris_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-iris_user} -d ${POSTGRES_DB:-iris_dev}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    container_name: task-cre-60-app
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URI: "postgresql+psycopg://${POSTGRES_USER:-iris_user}:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}@db:5432/${POSTGRES_DB:-iris_dev}"
+    volumes:
+      - ./data:/app/data
+
+volumes:
+  postgres_data:
